@@ -1,8 +1,9 @@
 defmodule Qronomnom.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
-  @url "https://bonner.jp"
+  @version "0.1.1"
+  @url "https://github.com/j4p3/qronomnom"
+  @docs "https://hexdocs.pm/qronomnom/"
   @name "Qronomnom"
 
   def project do
@@ -29,7 +30,7 @@ defmodule Qronomnom.MixProject do
      files: ["lib", "config", "mix.exs", "README*"],
      maintainers: ["JP Bonner"],
      licenses: ["MIT"],
-     links: %{github: @url},
+     links: %{github: @url, docs: @docs},
     ]
   end
 
@@ -39,7 +40,8 @@ defmodule Qronomnom.MixProject do
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
       {:tesla, "~> 1.4.3"},
-      {:jason, "~> 1.2.2"}
+      {:jason, "~> 1.2.2"},
+      {:ex_doc, "~> 0.25.3", only: [:dev, :test]},
     ]
   end
 end

@@ -1,21 +1,37 @@
 # Qronomnom
 
-**Hello  world**
+**Elixir functions for interacting with Qrono bookings API**
+
+WIP [Qrono](https://qrono.dev/) wrapper.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `qronomnom` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `qronomnom` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:qronomnom, "~> 0.1.0"}
+    {:qronomnom, "~> 0.1.1"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/qronomnom](https://hexdocs.pm/qronomnom).
+## Usage
 
+Ensure `QRONO_API_KEY` is set in your environment, or passed to `client/1`.
+
+```
+iex> Qronomnom.client() |> Qronomnom.Bookings.list()
+{:ok, [%{booking_id: "DFfDs...", ...}, %{booking_id: "SDFdfa...", ...}]}
+
+```
+
+## Documentation
+
+[https://hexdocs.pm/qronomnom/](https://hexdocs.pm/qronomnom/)
+
+## Development
+
+* clone this repository
+* run `mix deps.get`
+* ensure you've created an API key for your account
