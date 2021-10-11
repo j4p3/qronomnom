@@ -24,8 +24,9 @@ defmodule Qronomnom.Items do
   Lists items.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.index()
-    {:ok, [%{item_id: 1}, %{item_id: 2}]}
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.index()
+      {:ok, [%{item_id: 1}, %{item_id: 2}]}
   """
   @spec index(Tesla.Client.t()) :: {:error, any} | {:ok, item_type()}
   def index(client) do
@@ -37,8 +38,9 @@ defmodule Qronomnom.Items do
   Shows a single item.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.index()
-    {:ok, [%{item_id: "itm_EwYbBY2"}, %{item_id: "itm_LKH5L"}]}
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.index()
+      {:ok, [%{item_id: "itm_EwYbBY2"}, %{item_id: "itm_LKH5L"}]}
   """
   @spec show(Tesla.Client.t(), String.t()) :: {:error, any} | {:ok, item_type()}
   def show(client, item_id) do
@@ -50,19 +52,20 @@ defmodule Qronomnom.Items do
   Creates an item.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.create(%{
-          name: "string",
-          default_image: "string",
-          handle: "string",
-          description: "string",
-          metadata: %{
-            additionalProp: "foo"
-          },
-          booking_interval: :daily,
-          default_available: true
-    })
-    {:ok, %{item_id: "itm_EwYbBY2"}}
-  """
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.create(%{
+            name: "string",
+            default_image: "string",
+            handle: "string",
+            description: "string",
+            metadata: %{
+              additionalProp: "foo"
+            },
+            booking_interval: :daily,
+            default_available: true
+      })
+      {:ok, %{item_id: "itm_EwYbBY2"}}
+    """
   @spec create(Tesla.Client.t(), item_type) :: {:error, any} | {:ok, item_type()}
   def create(client, item_data) do
     Tesla.post(client, @items_uri, item_data)
@@ -73,18 +76,19 @@ defmodule Qronomnom.Items do
   Updates an item.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.update("itm_EwYbBY2", %{
-          name: "string",
-          default_image: "string",
-          handle: "string",
-          description: "string",
-          metadata: %{
-            additionalProp: "foo"
-          },
-          booking_interval: :daily,
-          default_available: true
-    })
-    {:ok, %{item_id: "itm_EwYbBY2"}}
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.update("itm_EwYbBY2", %{
+            name: "string",
+            default_image: "string",
+            handle: "string",
+            description: "string",
+            metadata: %{
+              additionalProp: "foo"
+            },
+            booking_interval: :daily,
+            default_available: true
+      })
+      {:ok, %{item_id: "itm_EwYbBY2"}}
   """
   @spec update(Tesla.Client.t(), String.t(), item_type) ::
           {:error, any} | {:ok, item_type()}
@@ -97,6 +101,7 @@ defmodule Qronomnom.Items do
   Shows an item's calendar.
 
   ## Examples
+
     iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.calendar()
     {:ok, [%{}, %{}]}
   """
@@ -110,6 +115,7 @@ defmodule Qronomnom.Items do
   Shows an item's timeblocks.
 
   ## Examples
+
     iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Items.timeblocks()
     {:ok, [%{}, %{}]}
   """

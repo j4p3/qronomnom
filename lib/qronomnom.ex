@@ -11,8 +11,8 @@ defmodule Qronomnom do
 
   ## Examples
 
-    iex> Qronomnom.client(%{api_key: "MY_KEY"})
-    %Tesla.client{}
+      iex> Qronomnom.client(%{api_key: "MY_KEY"})
+      %Tesla.client{}
   """
   @type client_opts :: %{
           optional(:api_key) => String.t()

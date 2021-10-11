@@ -16,8 +16,9 @@ defmodule Qronomnom.Hooks do
   Lists hooks.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.index()
-    {:ok, [%{hook_id: 1}, %{hook_id: 2}]}
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.index()
+      {:ok, [%{hook_id: 1}, %{hook_id: 2}]}
   """
   @spec index(Tesla.Client.t()) :: {:error, any} | {:ok, hook_type()}
   def index(client) do
@@ -29,8 +30,9 @@ defmodule Qronomnom.Hooks do
   Shows a single hook.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.show(1)
-    {:ok, %{hook_id: 1}}
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.show(1)
+      {:ok, %{hook_id: 1}}
   """
   @spec show(Tesla.Client.t(), integer()) :: {:error, any} | {:ok, hook_type()}
   def show(client, hook_id) do
@@ -42,11 +44,12 @@ defmodule Qronomnom.Hooks do
   Creates a hook. Note that the value of `:event` in the hook map must be one of the strings specified by Qrono: either `"bookings.created"` or `"bookings.updated"`.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.create(%{
-          target_url: "https://my_project.dev/webhooks_listener",
-          event: "bookings.created"
-    })
-    {:ok, %{hook_id: 1, ...}}
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.create(%{
+            target_url: "https://my_project.dev/webhooks_listener",
+            event: "bookings.created"
+      })
+      {:ok, %{hook_id: 1, ...}}
   """
   @spec create(Tesla.Client.t(), hook_type) :: {:error, any} | {:ok, hook_type()}
   def create(client, hook_data) do
@@ -58,11 +61,12 @@ defmodule Qronomnom.Hooks do
   Updates a hook. Note that the value of `:event` in the hook map must be one of the strings specified by Qrono: either `"bookings.created"` or `"bookings.updated"`.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.update(1, %{
-          target_url: "https://my_project.dev/webhooks_listener_2",
-          event: "bookings.created"
-    })
-    {:ok, %{hook_id: 1, ...}}
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.update(1, %{
+            target_url: "https://my_project.dev/webhooks_listener_2",
+            event: "bookings.created"
+      })
+      {:ok, %{hook_id: 1, ...}}
   """
   @spec update(Tesla.Client.t(), integer(), hook_type) ::
           {:error, any} | {:ok, hook_type()}
@@ -75,8 +79,9 @@ defmodule Qronomnom.Hooks do
   Destroys a hook.
 
   ## Examples
-    iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.destroy(1)
-    {:ok, %{hook_id: 1, ...}}
+
+      iex> Qronomnom.client(%{api_key: "MY_KEY"}) |> Qronomnom.Hooks.destroy(1)
+      {:ok, %{hook_id: 1, ...}}
   """
   @spec destroy(Tesla.Client.t(), integer()) :: {:error | :ok, %{}}
   def destroy(client, hook_id) do
